@@ -2,6 +2,9 @@ import requests
 
 from  smtp import message_send
 
+import datetime
+import time
+import schedule
 
 api_key = "dee847eb9f494434acfda9bab5fa5d60"
 # url = "https://finance.yahoo.com"
@@ -29,4 +32,23 @@ for article in articles:
         body = body + article['title'] + '\n' + article['description'] + 2*'\n'
 
 body = body.encode("utf-8")
-message_send(message=body)
+
+def message():
+    message_send(body)
+
+#schedule.every(1).minutes.do(message)
+
+# Every day at 12am or 00:00 time bedtime() is called.
+schedule.every().day.at("00:00").do(message)
+
+#schedule.every(1).minutes.do(message)
+# def sudo_placement():
+#     print("Get ready for Sudo Placement at Geeksforgeeks")
+#
+# # After every 10mins geeks() is called.
+# schedule.every(1).minutes.do(sudo_placement)
+while True:
+    # Checks whether a scheduled task
+    # is pending to run or not
+    schedule.run_pending()
+    time.sleep(60)
