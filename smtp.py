@@ -27,8 +27,14 @@ def message_send(message):
     smtp_server = "smtp.gmail.com"
     sender_email = 'devopsesi2022@gmail.com'
     receiver_email = 'devopsesi2022@gmail.com'
-    password = 'unkj vlla dtat dxkd'  # os.getenv("PASSWORD")
+    password = 'unkj vlla dtat dxkd'  # os.getenv
 
+    # Message = f""" \
+    # Subject: Hi
+    #
+    #
+    #
+    #{message} . """
     # Create a secure SSL context
     context = ssl.create_default_context()
 
