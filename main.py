@@ -11,7 +11,7 @@ api_key = "dee847eb9f494434acfda9bab5fa5d60"
 topic = "tesla"
 # endpoint :
 url = "https://newsapi.org/v2/everything?" \
-      "q={topic}" \
+      f"q={topic}" \
       "&from=2023-09-11" \
       "&sortBy=publishedAt" \
       "&apiKey=dee847eb9f494434acfda9bab5fa5d60" \
@@ -27,7 +27,7 @@ request = requests.get(url)
 # Get dictionary with data
 content = request.json()
 # print(type(content))
-# print(content['articles'])
+print(content['articles'])
 articles = content['articles']
 
 body = ""
